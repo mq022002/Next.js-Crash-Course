@@ -1,13 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",
+  /* config options here */
   reactStrictMode: true,
-  images: {
-    unoptimized: true,
-  },
-  assetPrefix: "/Next.js-Crash-Course/",
-  basePath: "/Next.js-Crash-Course",
+  output: "export",
 };
 
 export default nextConfig;

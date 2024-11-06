@@ -27,8 +27,10 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Setup Pages
+      - name: Setup Pages with Next.js configuration
         uses: actions/configure-pages@v5
+        with:
+          static_site_generator: next
 
       - name: Install dependencies
         run: npm install
