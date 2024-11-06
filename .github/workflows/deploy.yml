@@ -23,13 +23,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          static_site_generator: next
+
       - name: Install dependencies
         run: npm install
         working-directory: next.js-crash-course
+
       - name: Build with Next.js
         run: npm run build
         working-directory: next.js-crash-course
