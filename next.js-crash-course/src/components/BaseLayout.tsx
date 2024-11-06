@@ -1,4 +1,10 @@
-export default function BaseLayout({ children }) {
+import React, { ReactNode } from "react";
+
+interface BaseLayoutProps {
+  children: ReactNode;
+}
+
+export default function BaseLayout({ children }: BaseLayoutProps) {
   return (
     <div>
       <nav className="bg-gray-800 p-4">
