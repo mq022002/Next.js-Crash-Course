@@ -1,7 +1,7 @@
 name: Deploy Next.js statically built site to GitHub Pages
 on:
   push:
-    branches: ["main"]
+    branches: "main"
 
 permissions:
   contents: read
@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -23,12 +23,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          static_site_generator: next
       - name: Install dependencies
         run: npm install
         working-directory: next.js-crash-course
-
-      - name: Statically build the project
+      - name: Build with Next.js
         run: npm run build
         working-directory: next.js-crash-course
 
@@ -37,5 +39,13 @@ jobs:
         with:
           path: next.js-crash-course/out
 
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
