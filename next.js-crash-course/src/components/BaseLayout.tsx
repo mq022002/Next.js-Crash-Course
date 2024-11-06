@@ -8,14 +8,14 @@ interface BaseLayoutProps {
 export default function BaseLayout({ children }: BaseLayoutProps) {
   return (
     <div>
-      <nav className="bg-gray-800 p-4">
+      <div className="bg-gray-800 p-4">
         <Link href="/" className="text-white mx-2">
           Home
         </Link>
         <Link href="/people" className="text-white mx-2">
           People
         </Link>
-      </nav>
+      </div>
       <div className="p-4">{children}</div>
     </div>
   );
