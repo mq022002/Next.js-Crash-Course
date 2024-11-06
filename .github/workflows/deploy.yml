@@ -22,14 +22,16 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: next.js-crash-course
 
       - name: Statically build the project
         run: npm run build
+        working-directory: next.js-crash-course
 
       - name: Upload statically built files for deployment
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: next.js-crash-course/out
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
