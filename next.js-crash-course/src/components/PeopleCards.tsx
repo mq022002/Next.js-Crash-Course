@@ -1,4 +1,5 @@
 import React from "react";
+import peopleData from "@/data/people.json";
 
 interface PersonCardProps {
   name: string;
@@ -16,11 +17,18 @@ const PersonCard: React.FC<PersonCardProps> = ({ name, age, bgColor }) => {
 };
 
 const PeopleCards = () => {
+  const colors = ["bg-slate-200", "bg-slate-400", "bg-slate-600"];
+
   return (
     <div className="p-4">
-      <PersonCard name="Alice" age={30} bgColor="bg-slate-200" />
-      <PersonCard name="Bob" age={25} bgColor="bg-slate-200" />
-      <PersonCard name="Charlie" age={35} bgColor="bg-slate-200" />
+      {peopleData.people.map((person, index) => (
+        <PersonCard
+          key={index}
+          name={person.name}
+          age={person.age}
+          bgColor={colors[index % colors.length]}
+        />
+      ))}
     </div>
   );
 };
