@@ -7,7 +7,7 @@ const PeopleCards = () => {
         <div className="text-xl font-bold">Alice</div>
         <p>Age: 30</p>
       </div>
-      <div className="bg-white shadow-md rounded p-4 mb-4">
+      <div className="bg-slate-600 shadow-md rounded p-4 mb-4">
         <div className="text-xl font-bold">Bob</div>
         <p>Age: 25</p>
       </div>
